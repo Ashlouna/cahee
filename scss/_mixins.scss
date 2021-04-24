@@ -1,0 +1,23 @@
+@mixin flexRowSpBw {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin btn($bg-color, $color, $width) {
+  background-color: $bg-color;
+  width: $width;
+  color: $color;
+  font-family: "Raleway light", sans-serif;
+  font-size: 20px;
+  line-height: 25px;
+  border-style: none;
+  width: 200px;
+  height: 55px;
+  text-transform: uppercase;
+  outline: none;
+  box-shadow: 1px 1px 7px 1px #6d6868;
+  transition: all 0.3s;
+  &:active {
+    box-shadow: 2px 2px 7px 1px #686769 inset;
+    transform: scale(0.8);
+  }
+}
