@@ -4,12 +4,18 @@
 @import "mixins";
 @import "extends";
 .container {
-  max-width: 1180px;
-  height: 100%;
-  width: 78%;
-  margin: 0 auto;
+  padding: 0 calc(50vw - 585px);
+  @media screen and (max-width: 1200px) {
+    padding: 0 calc(50vw - 490px);
+  }
+  @media screen and (max-width: 992px) {
+    padding: 0 calc(50vw - 370px);
+  }
+  @media screen and (max-width: 768px) {
+    padding: 0 calc(50vw - 270px);
+  }
   @media screen and (max-width: 576px) {
-    width: 90%;
+    padding: 0 calc(50vw - 150px);
   }
 }
 .main-section {
@@ -32,9 +38,6 @@
       padding-top: 30px;
     }
   }
-  // @media screen and (max-width: 576px) {
-  //   background-position: 50% 50%;
-  // }
   @media screen and (max-width: 768px) {
     height: 100vh;
   }
@@ -121,7 +124,6 @@
         color: #b9b9b9;
       }
       &:hover a {
-        // height: 45px;
         color: #fff;
       }
     }
@@ -191,14 +193,14 @@
   background-image: url(../img/img1.png);
   background-position: 20% 50%;
   background-repeat: no-repeat;
-  padding: 15% 0 15% 0;
+  padding-top: 15%;
+  padding-bottom: 15%;
   &__article {
     display: flex;
     flex-direction: column;
   }
   &__title {
     font-family: "Raleway bold", sans-serif;
-    font-size: 90px;
     color: #fff;
     margin: 0;
     @media screen and (max-width: 992px) {
@@ -219,19 +221,22 @@
 }
 .our-service {
   width: 100%;
-  background: url(../img/tomato_img.png) 83% 50% no-repeat;
   background-color: $bg-blue;
-  padding: 5% 0 3% 0;
-  &__container {
-    @include flexRowSpBw;
-    align-items: center;
-    @media screen and (max-width: 992px) {
-      flex-direction: column-reverse;
-    }
+  background-image: url(../img/tomato_img.png);
+  background-repeat: no-repeat;
+  background-position: 83% 50%;
+  background-size: contain;
+  padding-top: 5%;
+  padding-bottom: 3%;
+  @include flexRowSpBw;
+  align-items: center;
+  @media screen and (max-width: 992px) {
+    background-size: 80%;
+    flex-direction: column-reverse;
   }
+
   &__title {
     font-family: "Raleway bold", sans-serif;
-    font-size: 90px;
     color: #fff;
     text-align: center;
   }
@@ -240,7 +245,7 @@
     background-image: url(../img/tomato_img.png);
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 92%;
+    background-size: 70%;
   }
 }
 .services {
@@ -292,15 +297,12 @@
 .gallery {
   background-color: $bg-yellow;
   padding-bottom: 10%;
-  &__container {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
   &__title {
     margin-top: 10%;
     text-align: center;
     font-family: "Raleway bold", sans-serif;
-    font-size: 90px;
     color: #262626;
   }
   &__subtitle {
@@ -355,12 +357,11 @@
 .subscribe {
   background: url(../img/cranberry_bg.jpg) no-repeat;
   background-size: cover;
-  padding: 7% 0;
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  padding-top: 7%;
+  padding-bottom: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   &__title {
     font-family: "Raleway bold", sans-serif;
     font-size: 40px;
@@ -417,7 +418,6 @@
   padding: 5% 0 6% 0;
   &__title {
     font-family: "Raleway bold", sans-serif;
-    font-size: 90px;
     text-align: center;
     max-width: 200px;
     color: #fff;
@@ -535,7 +535,6 @@
   }
   &__title {
     font-family: "Raleway bold", sans-serif;
-    font-size: 90px;
     line-height: 1.5;
     text-align: center;
     margin: 0;
@@ -626,13 +625,11 @@ input:-internal-autofill-selected {
   height: 13vh;
   background-color: #262626;
   color: #b9b9b9;
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
   }
   &__logo {
     @media screen and (max-width: 768px) {
@@ -663,7 +660,5 @@ input:-internal-autofill-selected {
   }
 }
 .title {
-  @media screen and (max-width: 768px) {
-    font-size: 50px;
-  }
+  @extend %fontTitle;
 }
